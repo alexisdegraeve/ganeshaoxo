@@ -161,7 +161,7 @@ function Game() {
 
       {(startGame && winner && winner==="X") && (<div className="end-game">
 
-          <span className="middle-text"> YOU <spans className="yellow">WIN</spans>!</span>
+          <span className="middle-text"> YOU <spans className="ms-2 yellow">WIN</spans>!</span>
           <i class="bi bi-trophy-fill yellow"></i>
       </div>) }
       {(startGame && winner && winner==="O") && (
