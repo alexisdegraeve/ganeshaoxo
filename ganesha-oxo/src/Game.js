@@ -1,12 +1,14 @@
 import { useState } from "react";
 import "./Game.css";
 import Board from "./Board";
+import Square from "./Square";
 
 function Game() {
   const [isThinking, setIsThinking] = useState(false);
   const [history, setHistory] = useState([Array(9).fill(null)]);
   const [currentMove, setCurrentMove] = useState(0);
   const [xIsNext, setXIsNext] = useState(true); // On gère manuellement qui joue
+  const [startGame, setStartGame] = useState(false);
   const currentSquares = history[currentMove];
   const winner = calculateWinner(currentSquares);
 
@@ -14,7 +16,7 @@ function Game() {
   if (winner) {
     status = "Winner: " + winner;
   } else {
-    status = "Next player: " + (xIsNext ? "X" : "O");
+    status = !isThinking ? "It's your turn to play ! " : "";
   }
 
   function handlePlay(nextSquares) {
@@ -61,6 +63,7 @@ function Game() {
   }
 
   function restart() {
+    setStartGame(true);
     setHistory([Array(9).fill(null)]); // Repart de zéro
     setCurrentMove(0); // Reviens au premier tour
     setXIsNext(true); // Reviens au joueur humain (X) qui commence
@@ -107,25 +110,66 @@ function Game() {
 
   return (
     <div className="game">
-      <div className="logo-game"   style={{ backgroundImage: `url(${process.env.PUBLIC_URL}/img/logo.svg)` }}></div>
-      <div className="game-board">
-        <Board
-          xIsNext={xIsNext}
-          squares={currentSquares}
-          onPlay={handlePlay}
-          status={status}
-        />
-      </div>
-      <div className="game-info">
-        {isThinking && (
-          <div className="thinking">
-            🤖 L'ordinateur réfléchit...
-            <div className="spinner" />
+      <div
+        className="logo-game"
+        style={{
+          backgroundImage: `url(${process.env.PUBLIC_URL}/img/logo.svg)`,
+        }}
+      ></div>
+
+      {!startGame ? (
+        <div className="game-board">
+          <div className="d-flex">
+            <Square value={"O"} anm="true"></Square>
+            <Square></Square>
+            <Square></Square>
           </div>
-        )}
-      </div>
+          <div className="d-flex">
+            <Square></Square>
+            <Square value={"X"} anm="true"></Square>
+            <Square></Square>
+          </div>
+          <div className="d-flex">
+            <Square></Square>
+            <Square></Square>
+            <Square value={"O"} anm="true"></Square>
+          </div>
+        </div>
+      ) : (
+        !winner && (
+          <div className="game-board">
+            <div className="game-info">
+              {isThinking ? (
+                <div className="status">
+                  🤖 L'ordinateur réfléchit...
+                  <div className="spinner" />
+                </div>
+              ) : (
+                <div className="status">{status}</div>
+              )}
+            </div>
+
+            <Board
+              xIsNext={xIsNext}
+              squares={currentSquares}
+              onPlay={handlePlay}
+              status={status}
+            />
+          </div>
+        )
+      )}
+
+      {(startGame && winner && winner==="X") && (<div>
+
+          <span>YOU WIN!</span>
+
+      </div>) }
+      {(startGame && winner && winner==="O") && (<div>FIN O { winner }</div>) }
+
       <div className="footer">
-        <button className="btn btn-lg btn-danger" onClick={() => restart()}>Restart</button>
+        <button className="btn btn-lg btn-danger" onClick={() => restart()}>
+          Start
+        </button>
       </div>
     </div>
   );

@@ -26,6 +26,14 @@
         font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
     }
     
+    .game-info,
+    .status {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    .game-info,
     p {
         font-family: 'Roboto', sans-serif;
         font-size: 1.5rem;
@@ -44,6 +52,20 @@
         background: rgba(255, 255, 255, 0.5);
         border: 0.5rem solid rgba(0, 0, 0, 0.6);
         border-radius: 1.5rem;
+    }
+    
+    @keyframes fadeInOut {
+        0%,
+        100% {
+            opacity: 0;
+        }
+        50% {
+            opacity: 1;
+        }
+    }
+    
+    .square.anm-square span {
+        animation: fadeInOut 1.5s ease-in-out infinite;
     }
     
     .board-row {

@@ -1,6 +1,6 @@
 import Square from './Square';
 
-function Board({xIsNext, squares, onPlay, status }) {
+function Board({xIsNext, squares, onPlay }) {
 
     function handleClick(i) {
       if (!xIsNext) return; 
@@ -12,7 +12,6 @@ function Board({xIsNext, squares, onPlay, status }) {
 
     return (
       <>
-        <p className="status">{ status }</p>
         <div className="board-row">
           <Square value={squares[0]} onSquareClick={() => handleClick(0)}/>
           <Square value={squares[1]} onSquareClick={() => handleClick(1)}/>

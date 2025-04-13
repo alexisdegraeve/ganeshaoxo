@@ -1,7 +1,7 @@
 
 
-function Square({value, onSquareClick}) {
-  return (<button className={`square ${value==='X' ? "pink" : "blue"}`} onClick={onSquareClick}>{value}</button>);
+function Square({value, onSquareClick, anm=false}) {
+  return (<button className={`square ${value==='X' ? "pink" : "blue"}  ${anm ? "anm-square" : ""} `} onClick={onSquareClick}><span>{value}</span></button>);
 }
 
 export default Square;
