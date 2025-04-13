@@ -1,6 +1,6 @@
 import { useState } from "react";
 import "./Game.css";
-import Board from './Board';
+import Board from "./Board";
 
 function Game() {
   const [isThinking, setIsThinking] = useState(false);
@@ -28,7 +28,7 @@ function Game() {
         makeComputerMove(nextSquares);
         setIsThinking(false);
         setXIsNext(true);
-      }, 800); 
+      }, 800);
     }
   }
 
@@ -41,19 +41,20 @@ function Game() {
     if (calculateWinner(squares)) return;
 
     const emptyIndexes = squares
-      .map((val, idx) => val === null ? idx : null)
+      .map((val, idx) => (val === null ? idx : null))
       .filter((val) => val !== null);
 
     if (emptyIndexes.length === 0) return; // Match nul si plus de cases vides
 
     // Choisir une case au hasard parmi les cases vides
-    const randomIndex = emptyIndexes[Math.floor(Math.random() * emptyIndexes.length)];
+    const randomIndex =
+      emptyIndexes[Math.floor(Math.random() * emptyIndexes.length)];
     const nextSquares = squares.slice();
     nextSquares[randomIndex] = "O"; // L'ordinateur joue avec "O"
     saveMove(nextSquares);
   }
 
-  function saveMove(nextSquares){
+  function saveMove(nextSquares) {
     const nextHistory = [...history.slice(0, currentMove + 1), nextSquares];
     setHistory(nextHistory);
     setCurrentMove(nextHistory.length - 1);
@@ -74,11 +75,15 @@ function Game() {
       [1, 4, 7],
       [2, 5, 8],
       [0, 4, 8],
-      [2, 4, 6]
+      [2, 4, 6],
     ];
     for (let i = 0; i < lines.length; i++) {
       const [a, b, c] = lines[i];
-      if (squares[a] && squares[a] === squares[b] && squares[a] === squares[c]) {
+      if (
+        squares[a] &&
+        squares[a] === squares[b] &&
+        squares[a] === squares[c]
+      ) {
         return squares[a]; // Retourne le gagnant
       }
     }
@@ -88,9 +93,9 @@ function Game() {
   const moves = history.map((squares, move) => {
     let description;
     if (move > 0) {
-      description = 'Go to move #' + move;
+      description = "Go to move #" + move;
     } else {
-      description = 'Go to game start';
+      description = "Go to game start";
     }
 
     return (
@@ -102,8 +107,17 @@ function Game() {
 
   return (
     <div className="game">
+      <div className="container mt-5">
+        <h1 className="text-primary">Hello Bootstrap 5 + React 👋</h1>
+        <button className="btn btn-success">Clique moi</button>
+      </div>
       <div className="game-board">
-        <Board xIsNext={xIsNext} squares={currentSquares} onPlay={handlePlay} status={status} />
+        <Board
+          xIsNext={xIsNext}
+          squares={currentSquares}
+          onPlay={handlePlay}
+          status={status}
+        />
       </div>
       <div className="game-info">
         {isThinking && (
