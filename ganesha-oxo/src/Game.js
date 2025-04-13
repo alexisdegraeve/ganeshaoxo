@@ -106,10 +106,9 @@ function Game() {
   });
 
   return (
-    <div className="game">
-      <div className="container mt-5">
-        <h1 className="text-primary">Hello Bootstrap 5 + React 👋</h1>
-        <button className="btn btn-success">Clique moi</button>
+    <div className="container">
+      <div className="pt-5">
+        <div className="logo-game"   style={{ backgroundImage: `url(${process.env.PUBLIC_URL}/img/logo.svg)` }}></div>
       </div>
       <div className="game-board">
         <Board
@@ -127,7 +126,7 @@ function Game() {
           </div>
         )}
       </div>
-      <button onClick={() => restart()}>Restart</button>
+      <button className="btn btn-lg btn-danger" onClick={() => restart()}>Restart</button>
     </div>
   );
 }

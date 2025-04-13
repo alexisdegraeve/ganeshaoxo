@@ -1,25 +1,50 @@
-body {
-    margin: 0;
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-}
-
-code {
-    font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
-}
-
-.square {
-    height: 5rem;
-    width: 5rem;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 24px;
-    font-weight: bold;
-    border-radius: 1rem;
-}
-
-.board-row {
-    display: flex;
-}
+    @import url('https://fonts.googleapis.com/css2?family=Tilt+Warp&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+    html,
+    body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+    }
+    
+    body {
+        margin: 0;
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        height: 100%;
+        background: linear-gradient(180deg, #8684AA 0%, #C483A1 21.63%, #EB9695 42.31%, #F4A578 63.94%, #FFC5CF 100%);
+        font-family: 'Roboto', sans-serif;
+        font-size: 1.5rem;
+        color: #fff;
+    }
+    
+    code {
+        font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
+    }
+    
+    .square {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-family: 'Tilt Warp', sans-serif;
+        font-size: 5rem;
+        font-weight: bold;
+        width: 7.5rem;
+        height: 7.5rem;
+        background: rgba(255, 255, 255, 0.5);
+        border: 0.5rem solid rgba(0, 0, 0, 0.6);
+        border-radius: 1.5rem;
+    }
+    
+    .board-row {
+        display: flex;
+    }
+    
+    .blue {
+        color: #63B7FF;
+    }
+    
+    .pink {
+        color: #FF1DB4;
+    }
