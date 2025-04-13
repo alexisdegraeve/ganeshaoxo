@@ -1,13 +1,18 @@
     .game {
-        height: 100%;
+        width: 30rem;
+        display: flex;
+        flex-direction: column;
+        margin-left: auto;
+        margin-right: auto;
     }
     
     .logo-game {
-        width: 150px;
-        height: 150px;
+        width: 30rem;
+        height: 10rem;
         background-repeat: no-repeat;
         background-size: contain;
         background-position: center;
+        margin-bottom: 2rem;
     }
     
     .App {

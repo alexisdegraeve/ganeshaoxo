@@ -106,7 +106,7 @@ function Game() {
   });
 
   return (
-    <div className="container">
+    <div className="game">
       <div className="pt-5">
         <div className="logo-game"   style={{ backgroundImage: `url(${process.env.PUBLIC_URL}/img/logo.svg)` }}></div>
       </div>
@@ -126,7 +126,9 @@ function Game() {
           </div>
         )}
       </div>
-      <button className="btn btn-lg btn-danger" onClick={() => restart()}>Restart</button>
+      <div className="footer">
+        <button className="btn btn-lg btn-danger" onClick={() => restart()}>Restart</button>
+      </div>
     </div>
   );
 }
