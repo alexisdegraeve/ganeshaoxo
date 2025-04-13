@@ -80,6 +80,14 @@
         color: #FF1DB4;
     }
     
+    .yellow {
+        color: #FFC107;
+    }
+    
+    .red {
+        color: red;
+    }
+    
     .footer {
         margin-left: auto;
         display: flex;

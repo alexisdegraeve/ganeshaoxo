@@ -141,7 +141,7 @@ function Game() {
             <div className="game-info">
               {isThinking ? (
                 <div className="status">
-                  🤖 L'ordinateur réfléchit...
+                  🤖 Computer is thinking...
                   <div className="spinner" />
                 </div>
               ) : (
@@ -159,16 +159,21 @@ function Game() {
         )
       )}
 
-      {(startGame && winner && winner==="X") && (<div>
+      {(startGame && winner && winner==="X") && (<div className="end-game">
 
-          <span>YOU WIN!</span>
-
+          <span className="middle-text"> YOU <spans className="yellow">WIN</spans>!</span>
+          <i class="bi bi-trophy-fill yellow"></i>
       </div>) }
-      {(startGame && winner && winner==="O") && (<div>FIN O { winner }</div>) }
+      {(startGame && winner && winner==="O") && (
+        <div className="end-game">
+
+          <span className="middle-text"> YOU <spans className="ms-2 red">LOSE</spans>!</span>
+          <i class="bi bi-lightning-fill red"></i>
+      </div>) }
 
       <div className="footer">
         <button className="btn btn-lg btn-danger" onClick={() => restart()}>
-          Start
+          START
         </button>
       </div>
     </div>
