@@ -18,37 +18,26 @@ function Game() {
   }
 
   function handlePlay(nextSquares) {
-    // Si ce n'est pas le tour de l'humain, on empêche de jouer
-    if (!xIsNext || calculateWinner(nextSquares)) return;
-
-    const nextHistory = [...history.slice(0, currentMove + 1), nextSquares];
-    setHistory(nextHistory);
-    setCurrentMove(nextHistory.length - 1);
-
-    // Change de joueur (de X à O ou vice-versa)
-    // setXIsNext(!xIsNext);
-
-    // Vérifier si l'humain a gagné ou non
+    saveMove(nextSquares);
     const winner = calculateWinner(nextSquares);
+
+    // Computer Play
     if (!winner && xIsNext) {
-      // Si c'est le tour de l'humain, l'ordinateur doit jouer après un délai
       setIsThinking(true);
       setTimeout(() => {
         makeComputerMove(nextSquares);
         setIsThinking(false);
-        setXIsNext(!xIsNext);
-      }, 800); // Délai de réflexion de l'ordinateur
+        setXIsNext(true);
+      }, 800); 
     }
   }
 
   function jumpTo(nextMove) {
     setCurrentMove(nextMove);
-    // On met à jour aussi xIsNext si on navigue dans l'historique
     setXIsNext(nextMove % 2 === 0);
   }
 
   function makeComputerMove(squares) {
-    // Si une victoire est déjà trouvée, l'ordinateur ne doit pas jouer
     if (calculateWinner(squares)) return;
 
     const emptyIndexes = squares
@@ -59,12 +48,16 @@ function Game() {
 
     // Choisir une case au hasard parmi les cases vides
     const randomIndex = emptyIndexes[Math.floor(Math.random() * emptyIndexes.length)];
-
     const nextSquares = squares.slice();
     nextSquares[randomIndex] = "O"; // L'ordinateur joue avec "O"
+    console.log('lordinateur joue ', nextSquares);
+    saveMove(nextSquares);
+  }
 
-    // Appeler handlePlay pour mettre à jour le jeu après que l'ordinateur ait joué
-    handlePlay(nextSquares);
+  function saveMove(nextSquares){
+    const nextHistory = [...history.slice(0, currentMove + 1), nextSquares];
+    setHistory(nextHistory);
+    setCurrentMove(nextHistory.length - 1);
   }
 
   function restart() {
