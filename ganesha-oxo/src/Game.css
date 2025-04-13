@@ -77,3 +77,10 @@
             transform: rotate(360deg);
         }
     }
+    
+    @media screen and (max-width: 768px) {
+        .logo-game {
+            width: 30rem;
+            height: 7rem;
+        }
+    }

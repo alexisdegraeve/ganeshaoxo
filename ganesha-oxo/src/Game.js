@@ -107,9 +107,7 @@ function Game() {
 
   return (
     <div className="game">
-      <div className="pt-5">
-        <div className="logo-game"   style={{ backgroundImage: `url(${process.env.PUBLIC_URL}/img/logo.svg)` }}></div>
-      </div>
+      <div className="logo-game"   style={{ backgroundImage: `url(${process.env.PUBLIC_URL}/img/logo.svg)` }}></div>
       <div className="game-board">
         <Board
           xIsNext={xIsNext}

@@ -4,7 +4,10 @@
     body {
         height: 100%;
         margin: 0;
-        padding: 0;
+        padding: 1rem;
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
     }
     
     body {
@@ -13,8 +16,8 @@
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
         height: 100%;
-        background: linear-gradient(180deg, #8684AA 0%, #C483A1 21.63%, #EB9695 42.31%, #F4A578 63.94%, #FFC5CF 100%);
         font-family: 'Roboto', sans-serif;
+        background: linear-gradient(180deg, #8684AA 0%, #C483A1 21.63%, #EB9695 42.31%, #F4A578 63.94%, #FFC5CF 100%);
         font-size: 1.5rem;
         color: #fff;
     }
