@@ -34,11 +34,6 @@ function Game() {
     }
   }
 
-  function jumpTo(nextMove) {
-    setCurrentMove(nextMove);
-    setXIsNext(nextMove % 2 === 0);
-  }
-
   function makeComputerMove(squares) {
     if (calculateWinner(squares)) return;
 
@@ -92,21 +87,6 @@ function Game() {
     }
     return null;
   }
-
-  const moves = history.map((squares, move) => {
-    let description;
-    if (move > 0) {
-      description = "Go to move #" + move;
-    } else {
-      description = "Go to game start";
-    }
-
-    return (
-      <li key={move}>
-        <button onClick={() => jumpTo(move)}>{description}</button>
-      </li>
-    );
-  });
 
   return (
     <div className="game">
