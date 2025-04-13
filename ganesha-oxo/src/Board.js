@@ -2,17 +2,14 @@ import Square from './Square';
 
 function Board({xIsNext, squares, onPlay, status }) {
 
-  
     function handleClick(i) {
       if (!xIsNext) return; 
       if (squares[i]) return;
-      const nextSquares = squares.slice();    
+      const nextSquares = squares.slice();
       nextSquares[i] = "X";
       onPlay(nextSquares);
     }
-  
 
-  
     return (
       <>
         <div className="status">{ status }</div>

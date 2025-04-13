@@ -50,7 +50,6 @@ function Game() {
     const randomIndex = emptyIndexes[Math.floor(Math.random() * emptyIndexes.length)];
     const nextSquares = squares.slice();
     nextSquares[randomIndex] = "O"; // L'ordinateur joue avec "O"
-    console.log('lordinateur joue ', nextSquares);
     saveMove(nextSquares);
   }
 
@@ -113,7 +112,6 @@ function Game() {
             <div className="spinner" />
           </div>
         )}
-        <ol>{moves}</ol>
       </div>
       <button onClick={() => restart()}>Restart</button>
     </div>
