@@ -103,3 +103,11 @@
     .end-game i {
         font-size: 89px;
     }
+    
+    .alert-info {
+        display: flex;
+        width: 22rem;
+        flex-wrap: wrap;
+        margin-left: auto;
+        margin-right: auto;
+    }

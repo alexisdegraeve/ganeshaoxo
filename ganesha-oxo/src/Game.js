@@ -105,9 +105,9 @@ function Game() {
       </div>
       {showRules && (
         <div className="alert alert-info">
-          <strong>X = Robot | O = You</strong> <br />
-          3 O in a row (horizontal, vertical or diagonal) <br /> ➡️ You win! 🧠💪 < br />
-          3 X in a row (horizontal, vertical or diagonal) <br /> ➡️ Robot wins 🤖 
+          <strong>X = You | O = Robot</strong> <br />
+          3 X in a row (horizontal, vertical or diagonal) <br /> ➡️ You win! 🧠💪 < br />
+          3 O in a row (horizontal, vertical or diagonal) <br /> ➡️ Robot wins 🤖 
         </div>
       )}
         <div className="game-board">
