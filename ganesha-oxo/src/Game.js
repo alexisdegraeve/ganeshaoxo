@@ -97,18 +97,16 @@ function Game() {
           backgroundImage: `url(${process.env.PUBLIC_URL}/img/logo.svg)`,
         }}
       ></div>
-      {!startGame ? (
-        <>
-              <div className="mb-3">
-
-      </div>
+      <>
       {showRules && (
         <div className="alert alert-info">
           <strong>X = You | O = Robot</strong> <br />
           3 X in a row (horizontal, vertical or diagonal) <br /> ➡️ You win! 🧠💪 < br />
           3 O in a row (horizontal, vertical or diagonal) <br /> ➡️ Robot wins 🤖 
         </div>
-      )}
+      )}</>
+      {!startGame ? (
+        <>
         <div className="game-board">
           <div className="d-flex">
             <Square value={"O"} anm="true"></Square>
