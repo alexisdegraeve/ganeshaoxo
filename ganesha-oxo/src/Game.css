@@ -1,18 +1,18 @@
     .game {
-        width: 30rem;
         display: flex;
         flex-direction: column;
         margin-left: auto;
         margin-right: auto;
+        flex: 1
     }
     
     .logo-game {
-        width: 30rem;
         height: 10rem;
         background-repeat: no-repeat;
         background-size: contain;
         background-position: center;
         margin-bottom: 2rem;
+        margin-top: 2rem;
     }
     
     .App {
@@ -80,8 +80,9 @@
     
     @media screen and (max-width: 768px) {
         .logo-game {
-            width: 30rem;
             height: 9rem;
+            margin-top: 1rem;
+            margin-bottom: 1rem;
         }
     }
     
