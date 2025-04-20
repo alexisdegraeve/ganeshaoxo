@@ -3,6 +3,7 @@ import "./Game.css";
 import Board from "./Board";
 import Square from "./Square";
 
+
 function Game() {
   const [isThinking, setIsThinking] = useState(false);
   const [history, setHistory] = useState([Array(9).fill(null)]);
@@ -11,6 +12,7 @@ function Game() {
   const [startGame, setStartGame] = useState(false);
   const currentSquares = history[currentMove];
   const winner = calculateWinner(currentSquares);
+  const [showRules, setShowRules] = useState(false);
 
   let status;
   if (winner) {
@@ -22,7 +24,6 @@ function Game() {
   function handlePlay(nextSquares) {
     saveMove(nextSquares);
     const winner = calculateWinner(nextSquares);
-
     // Computer Play
     if (!winner && xIsNext) {
       setIsThinking(true);
@@ -98,6 +99,17 @@ function Game() {
       ></div>
 
       {!startGame ? (
+        <>
+              <div className="mb-3">
+
+      </div>
+      {showRules && (
+        <div className="alert alert-info">
+          <strong>X = Robot | O = You</strong> <br />
+          3 O in a row (horizontal, vertical or diagonal) <br /> ➡️ You win! 🧠💪 < br />
+          3 X in a row (horizontal, vertical or diagonal) <br /> ➡️ Robot wins 🤖 
+        </div>
+      )}
         <div className="game-board">
           <div className="d-flex">
             <Square value={"O"} anm="true"></Square>
@@ -115,6 +127,7 @@ function Game() {
             <Square value={"O"} anm="true"></Square>
           </div>
         </div>
+      </>
       ) : (
         !winner && (
           <div className="game-board">
@@ -154,6 +167,13 @@ function Game() {
       <div className="footer">
         <button className="btn btn-lg btn-danger" onClick={() => restart()}>
           START
+        </button>
+        <button
+          className="ms-4 btn btn-success d-flex align-items-center"
+          onClick={() => setShowRules(!showRules)}
+        >
+            <i className="bi bi-controller me-2"></i>
+          Rules
         </button>
       </div>
     </div>
