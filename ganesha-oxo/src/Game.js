@@ -97,7 +97,6 @@ function Game() {
           backgroundImage: `url(${process.env.PUBLIC_URL}/img/logo.svg)`,
         }}
       ></div>
-
       {!startGame ? (
         <>
               <div className="mb-3">
@@ -129,7 +128,7 @@ function Game() {
         </div>
       </>
       ) : (
-        !winner && (
+        !winner && currentMove < 5 && (
           <div className="game-board">
             <div className="game-info">
               {isThinking ? (
@@ -151,6 +150,12 @@ function Game() {
           </div>
         )
       )}
+
+      {(startGame && currentMove === 5 && !winner) && (<div className="end-game">
+
+      <span className="middle-text"> <spans className="ms-2 yellow">DRAW</spans>!</span>
+      <i class="bi bi-emoji-surprise-fill red"></i>
+      </div>) }
 
       {(startGame && winner && winner==="X") && (<div className="end-game">
 
